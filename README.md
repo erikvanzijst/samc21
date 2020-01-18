@@ -1,6 +1,6 @@
 # Bare metal ARM MCU testing
 
-A little project into getting a bare [32 pin, TQFP SAMC21N18A](http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en598829) chip to do something.
+A little project into getting a bare [32 pin, TQFP SAMC21E18A](http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en598829) chip to do something.
 
 ![](images/breakouts.jpg)
 
