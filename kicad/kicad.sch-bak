@@ -1,0 +1,315 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "ATSAMC21N18A Dev"
+Date "2020-01-18"
+Rev "v01"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 "Author: Erik van Zijst"
+$EndDescr
+$Comp
+L local_syms:ATSAMC21N18A-TQFP32 U1
+U 1 1 5E23A334
+P 5475 3900
+F 0 "U1" H 4750 4775 50  0000 C CNN
+F 1 "ATSAMC21N18A-TQFP32" H 5475 4000 50  0000 C CNN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 6475 4800 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/SAM-C20C21-Family-Datasheet-DS60001479C.pdf" H 5475 3900 50  0001 C CNN
+	1    5475 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR03
+U 1 1 5E23C422
+P 5675 1875
+F 0 "#PWR03" H 5675 1725 50  0001 C CNN
+F 1 "VCC" H 5692 2048 50  0000 C CNN
+F 2 "" H 5675 1875 50  0001 C CNN
+F 3 "" H 5675 1875 50  0001 C CNN
+	1    5675 1875
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5675 1875 5675 1975
+Text Label 5675 1950 0    50   ~ 0
+3.3v
+$Comp
+L Device:R R1
+U 1 1 5E23DDA0
+P 3900 2550
+F 0 "R1" H 3970 2596 50  0000 L CNN
+F 1 "1K" H 3970 2505 50  0000 L CNN
+F 2 "" V 3830 2550 50  0001 C CNN
+F 3 "~" H 3900 2550 50  0001 C CNN
+	1    3900 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 4500 4475 4500
+Connection ~ 5675 1975
+$Comp
+L power:GND #PWR02
+U 1 1 5E23FEDE
+P 5425 5150
+F 0 "#PWR02" H 5425 4900 50  0001 C CNN
+F 1 "GND" H 5430 4977 50  0000 C CNN
+F 2 "" H 5425 5150 50  0001 C CNN
+F 3 "" H 5425 5150 50  0001 C CNN
+	1    5425 5150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5425 4950 5425 5050
+Wire Wire Line
+	5575 4950 5575 5050
+Wire Wire Line
+	5575 5050 5425 5050
+Connection ~ 5425 5050
+Wire Wire Line
+	5425 5050 5425 5150
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 5E2407B9
+P 5425 1975
+F 0 "#FLG02" H 5425 2050 50  0001 C CNN
+F 1 "PWR_FLAG" H 5425 2148 50  0000 C CNN
+F 2 "" H 5425 1975 50  0001 C CNN
+F 3 "~" H 5425 1975 50  0001 C CNN
+	1    5425 1975
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 5E240D20
+P 5125 5050
+F 0 "#FLG01" H 5125 5125 50  0001 C CNN
+F 1 "PWR_FLAG" H 5125 5223 50  0000 C CNN
+F 2 "" H 5125 5050 50  0001 C CNN
+F 3 "~" H 5125 5050 50  0001 C CNN
+	1    5125 5050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 2400 3900 1975
+Wire Wire Line
+	3900 2700 3900 4200
+Wire Wire Line
+	2975 4000 3450 4000
+Wire Wire Line
+	3450 4000 3450 4600
+Wire Wire Line
+	3450 4600 4475 4600
+Wire Wire Line
+	2975 4200 3900 4200
+Connection ~ 3900 4200
+Wire Wire Line
+	3900 4200 3900 4500
+Wire Wire Line
+	4475 4400 3275 4400
+Wire Wire Line
+	3275 4400 3275 4300
+Wire Wire Line
+	3275 4300 2975 4300
+NoConn ~ 2975 4400
+NoConn ~ 2975 4500
+$Comp
+L local_syms:Conn_ARM_JTAG_SWD_10 J1
+U 1 1 5E24CFFF
+P 2475 4300
+F 0 "J1" H 2525 5081 50  0000 C CNN
+F 1 "Conn_ARM_JTAG_SWD_10" H 2525 4990 50  0000 C CNN
+F 2 "" H 2475 4300 50  0001 C CNN
+F 3 "http://infocenter.arm.com/help/topic/com.arm.doc.ddi0314h/DDI0314H_coresight_components_trm.pdf" V 2125 3050 50  0001 C CNN
+	1    2475 4300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5425 5050 5125 5050
+Wire Wire Line
+	2375 5050 2375 4900
+Wire Wire Line
+	2475 4900 2475 5050
+Connection ~ 2475 5050
+Wire Wire Line
+	2475 5050 2375 5050
+Wire Wire Line
+	2575 4900 2575 5050
+Connection ~ 2575 5050
+Wire Wire Line
+	2575 5050 2475 5050
+Connection ~ 5125 5050
+Wire Wire Line
+	5125 5050 2575 5050
+$Comp
+L Device:LED D1
+U 1 1 5E250E9B
+P 6950 4450
+F 0 "D1" V 6989 4333 50  0000 R CNN
+F 1 "LED" V 6898 4333 50  0000 R CNN
+F 2 "" H 6950 4450 50  0001 C CNN
+F 3 "~" H 6950 4450 50  0001 C CNN
+	1    6950 4450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6475 4100 6950 4100
+Wire Wire Line
+	6950 4100 6950 4300
+Wire Wire Line
+	5675 1975 5675 2200
+$Comp
+L Device:R R2
+U 1 1 5E25332D
+P 6575 5050
+F 0 "R2" V 6368 5050 50  0000 C CNN
+F 1 "220R" V 6459 5050 50  0000 C CNN
+F 2 "" V 6505 5050 50  0001 C CNN
+F 3 "~" H 6575 5050 50  0001 C CNN
+	1    6575 5050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6425 5050 5575 5050
+Connection ~ 5575 5050
+Wire Wire Line
+	6725 5050 6950 5050
+Wire Wire Line
+	6950 5050 6950 4600
+Connection ~ 5425 1975
+Wire Wire Line
+	5425 1975 3900 1975
+Wire Wire Line
+	5425 1975 5675 1975
+$Comp
+L Device:CP1 C2
+U 1 1 5E2586D0
+P 5175 2500
+F 0 "C2" V 5075 2300 50  0000 C CNN
+F 1 "10uF" V 5300 2500 50  0000 C CNN
+F 2 "" H 5175 2500 50  0001 C CNN
+F 3 "~" H 5175 2500 50  0001 C CNN
+	1    5175 2500
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5E25A9B6
+P 5175 2200
+F 0 "C1" V 5050 2000 50  0000 C CNN
+F 1 "100nF" V 5014 2200 50  0000 C CNN
+F 2 "" H 5213 2050 50  0001 C CNN
+F 3 "~" H 5175 2200 50  0001 C CNN
+	1    5175 2200
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR01
+U 1 1 5E25E4FD
+P 4675 2200
+F 0 "#PWR01" H 4675 1950 50  0001 C CNN
+F 1 "GND" V 4680 2072 50  0000 R CNN
+F 2 "" H 4675 2200 50  0001 C CNN
+F 3 "" H 4675 2200 50  0001 C CNN
+	1    4675 2200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4675 2200 4775 2200
+Wire Wire Line
+	5025 2500 4775 2500
+Wire Wire Line
+	4775 2500 4775 2200
+Connection ~ 4775 2200
+Wire Wire Line
+	4775 2200 5025 2200
+Wire Wire Line
+	5425 1975 5425 2200
+Wire Wire Line
+	5325 2200 5425 2200
+Connection ~ 5425 2200
+Wire Wire Line
+	5425 2200 5425 2500
+Wire Wire Line
+	5325 2500 5425 2500
+Connection ~ 5425 2500
+Wire Wire Line
+	5425 2500 5425 2900
+$Comp
+L Device:CP1 C3
+U 1 1 5E2665BE
+P 5825 2200
+F 0 "C3" V 5725 2000 50  0000 C CNN
+F 1 "10uF" V 5950 2200 50  0000 C CNN
+F 2 "" H 5825 2200 50  0001 C CNN
+F 3 "~" H 5825 2200 50  0001 C CNN
+	1    5825 2200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:C C4
+U 1 1 5E2665C8
+P 5825 2500
+F 0 "C4" V 5700 2300 50  0000 C CNN
+F 1 "100nF" V 5664 2500 50  0000 C CNN
+F 2 "" H 5863 2350 50  0001 C CNN
+F 3 "~" H 5825 2500 50  0001 C CNN
+	1    5825 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR04
+U 1 1 5E2665D2
+P 6325 2500
+F 0 "#PWR04" H 6325 2250 50  0001 C CNN
+F 1 "GND" V 6330 2372 50  0000 R CNN
+F 2 "" H 6325 2500 50  0001 C CNN
+F 3 "" H 6325 2500 50  0001 C CNN
+	1    6325 2500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6325 2500 6225 2500
+Wire Wire Line
+	5975 2200 6225 2200
+Wire Wire Line
+	6225 2200 6225 2500
+Connection ~ 6225 2500
+Wire Wire Line
+	6225 2500 5975 2500
+Connection ~ 5675 2200
+Wire Wire Line
+	5675 2200 5675 2500
+Connection ~ 5675 2500
+Wire Wire Line
+	5675 2500 5675 2900
+Wire Wire Line
+	2475 1975 3900 1975
+Wire Wire Line
+	2475 1975 2475 3700
+Connection ~ 3900 1975
+$Comp
+L Device:C C5
+U 1 1 5E271495
+P 5950 2825
+F 0 "C5" V 5825 2625 50  0000 C CNN
+F 1 "100nF" V 5789 2825 50  0000 C CNN
+F 2 "" H 5988 2675 50  0001 C CNN
+F 3 "~" H 5950 2825 50  0001 C CNN
+	1    5950 2825
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5575 2900 5575 2825
+Wire Wire Line
+	5575 2825 5800 2825
+Wire Wire Line
+	6100 2825 6225 2825
+Wire Wire Line
+	6225 2825 6225 2500
+$EndSCHEMATC
