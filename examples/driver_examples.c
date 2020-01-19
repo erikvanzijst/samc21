@@ -65,15 +65,6 @@ void PWM_0_example(void)
 }
 
 /**
- * Example of using PWM_1.
- */
-void PWM_1_example(void)
-{
-	pwm_set_parameters(&PWM_1, 10000, 5000);
-	pwm_enable(&PWM_1);
-}
-
-/**
  * Example of using TEMPERATURE_SENSOR_0 to generate waveform.
  */
 void TEMPERATURE_SENSOR_0_example(void)

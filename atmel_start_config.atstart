@@ -26,7 +26,7 @@ drivers:
     functionality: ADC
     api: HAL:Driver:ADC_Sync
     configuration:
-      adc_advanced_settings: false
+      adc_advanced_settings: true
       adc_arch_adjres: 0
       adc_arch_corren: false
       adc_arch_dbgrun: false
@@ -59,8 +59,15 @@ drivers:
       adc_pinmux_positive: ADC AIN0 pin
       adc_prescaler: Peripheral clock divided by 2
       adc_reference: Internal bandgap reference
-      adc_resolution: 12-bit
-    optional_signals: []
+      adc_resolution: 8-bit
+    optional_signals:
+    - identifier: ADC_0:AIN/0
+      pad: PA02
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::ADC0.AIN.0
+      name: ADC0/AIN/0
+      label: AIN/0
     variant: null
     clocks:
       domain_group:
@@ -628,7 +635,7 @@ drivers:
       domain_group: null
   PWM_0:
     user_label: PWM_0
-    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::TC0::driver_config_definition::PWM::HAL:Driver:PWM
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::TC4::driver_config_definition::PWM::HAL:Driver:PWM
     functionality: PWM
     api: HAL:Driver:PWM
     configuration:
@@ -649,41 +656,21 @@ drivers:
       tc_mode: Counter in 16-bit mode
       tc_prescaler: No division
       timer_event_control: false
-    optional_signals: []
-    variant: null
-    clocks:
-      domain_group:
-        nodes:
-        - name: TC
-          input: Generic clock generator 0
-          external: false
-          external_frequency: 0
-        configuration:
-          tc_gclk_selection: Generic clock generator 0
-  PWM_1:
-    user_label: PWM_1
-    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::TC1::driver_config_definition::PWM::HAL:Driver:PWM
-    functionality: PWM
-    api: HAL:Driver:PWM
-    configuration:
-      tc_arch_alock: The Lock Update bit is not affected on overflow/underflow and
-        re-trigger event
-      tc_arch_dbgrun: false
-      tc_arch_evact: Event action disabled
-      tc_arch_mceo0: false
-      tc_arch_mceo1: false
-      tc_arch_ondemand: false
-      tc_arch_ovfeo: false
-      tc_arch_presync: Reload or reset counter on next GCLK
-      tc_arch_runstdby: false
-      tc_arch_tcei: false
-      tc_arch_tcinv: false
-      tc_arch_wave_duty_val: 500
-      tc_arch_wave_per_val: 1000
-      tc_mode: Counter in 16-bit mode
-      tc_prescaler: No division
-      timer_event_control: false
-    optional_signals: []
+    optional_signals:
+    - identifier: PWM_0:WO/0
+      pad: PA14
+      mode: PWM output
+      configuration: null
+      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::TC4.WO.0
+      name: TC4/WO/0
+      label: WO/0
+    - identifier: PWM_0:WO/1
+      pad: PA15
+      mode: PWM output
+      configuration: null
+      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::TC4.WO.1
+      name: TC4/WO/1
+      label: WO/1
     variant: null
     clocks:
       domain_group:
@@ -724,6 +711,24 @@ drivers:
         configuration:
           tsens_gclk_selection: Generic clock generator 0
 pads:
+  ANALOG_IN:
+    name: PA02
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA02
+    mode: Analog
+    user_label: ANALOG_IN
+    configuration: null
+  LED1:
+    name: PA14
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA14
+    mode: Peripheral IO
+    user_label: LED1
+    configuration: null
+  LED2:
+    name: PA15
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA15
+    mode: Peripheral IO
+    user_label: LED2
+    configuration: null
   BLINKER:
     name: PA22
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA22

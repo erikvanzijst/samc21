@@ -270,6 +270,9 @@ program: $(SUB_DIRS) $(OUTPUT_FILE_PATH)
 	@echo Writing flash...
 	openocd -f ../openocd.cfg -c "program $(OUTPUT_FILE_PATH) verify reset exit"
 
+debug: $(OUTPUT_FILE_PATH)
+	arm-none-eabi-gdb -iex "target extended-remote localhost:3333" $(OUTPUT_FILE_PATH)
+
 clean:
 	rm -f $(OBJS_AS_ARGS)
 	rm -f $(OUTPUT_FILE_PATH)

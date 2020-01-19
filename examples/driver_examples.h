@@ -20,8 +20,6 @@ void delay_example(void);
 
 void PWM_0_example(void);
 
-void PWM_1_example(void);
-
 void TEMPERATURE_SENSOR_0_example(void);
 
 #ifdef __cplusplus

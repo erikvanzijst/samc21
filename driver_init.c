@@ -20,12 +20,15 @@ struct adc_sync_descriptor ADC_0;
 
 struct pwm_descriptor PWM_0;
 
-struct pwm_descriptor PWM_1;
-
 struct temp_sync_descriptor TEMPERATURE_SENSOR_0;
 
 void ADC_0_PORT_init(void)
 {
+
+	// Disable digital pin circuitry
+	gpio_set_pin_direction(ANALOG_IN, GPIO_DIRECTION_OFF);
+
+	gpio_set_pin_function(ANALOG_IN, PINMUX_PA02B_ADC0_AIN0);
 }
 
 void ADC_0_CLOCK_init(void)
@@ -59,36 +62,23 @@ void delay_driver_init(void)
 
 void PWM_0_PORT_init(void)
 {
+
+	gpio_set_pin_function(LED1, PINMUX_PA14E_TC4_WO0);
+
+	gpio_set_pin_function(LED2, PINMUX_PA15E_TC4_WO1);
 }
 
 void PWM_0_CLOCK_init(void)
 {
-	hri_mclk_set_APBCMASK_TC0_bit(MCLK);
-	hri_gclk_write_PCHCTRL_reg(GCLK, TC0_GCLK_ID, CONF_GCLK_TC0_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_mclk_set_APBCMASK_TC4_bit(MCLK);
+	hri_gclk_write_PCHCTRL_reg(GCLK, TC4_GCLK_ID, CONF_GCLK_TC4_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
 }
 
 void PWM_0_init(void)
 {
 	PWM_0_CLOCK_init();
 	PWM_0_PORT_init();
-	pwm_init(&PWM_0, TC0, _tc_get_pwm());
-}
-
-void PWM_1_PORT_init(void)
-{
-}
-
-void PWM_1_CLOCK_init(void)
-{
-	hri_mclk_set_APBCMASK_TC1_bit(MCLK);
-	hri_gclk_write_PCHCTRL_reg(GCLK, TC1_GCLK_ID, CONF_GCLK_TC1_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
-}
-
-void PWM_1_init(void)
-{
-	PWM_1_CLOCK_init();
-	PWM_1_PORT_init();
-	pwm_init(&PWM_1, TC1, _tc_get_pwm());
+	pwm_init(&PWM_0, TC4, _tc_get_pwm());
 }
 
 void TEMPERATURE_SENSOR_0_CLOCK_init(void)
@@ -129,8 +119,6 @@ void system_init(void)
 	delay_driver_init();
 
 	PWM_0_init();
-
-	PWM_1_init();
 
 	TEMPERATURE_SENSOR_0_init();
 }

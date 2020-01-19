@@ -28,8 +28,6 @@ extern "C" {
 #include <hal_delay.h>
 #include <hal_pwm.h>
 #include <hpl_tc_base.h>
-#include <hal_pwm.h>
-#include <hpl_tc_base.h>
 
 #include <hal_temp_sync.h>
 
@@ -37,8 +35,6 @@ extern struct adc_sync_descriptor ADC_0;
 extern struct timer_descriptor    TIMER_0;
 
 extern struct pwm_descriptor PWM_0;
-
-extern struct pwm_descriptor PWM_1;
 
 extern struct temp_sync_descriptor TEMPERATURE_SENSOR_0;
 
@@ -51,10 +47,6 @@ void delay_driver_init(void);
 void PWM_0_PORT_init(void);
 void PWM_0_CLOCK_init(void);
 void PWM_0_init(void);
-
-void PWM_1_PORT_init(void);
-void PWM_1_CLOCK_init(void);
-void PWM_1_init(void);
 
 void TEMPERATURE_SENSOR_0_CLOCK_init(void);
 void TEMPERATURE_SENSOR_0_init(void);
