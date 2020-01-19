@@ -1,27 +1,14 @@
-/*
- * main.c
- */
-#include <samc21.h>
+#include <atmel_start.h>
+#include <atmel_start_pins.h>
 
-void delay(int n)
+int main(void)
 {
-    int i;
+	/* Initializes MCU, drivers and middleware */
+	atmel_start_init();
 
-    for (;n >0; n--)
-    {
-        for (i=0;i<200;i++)
-            __asm("nop");
-    }
-}
-
-int main()
-{
-    REG_PORT_DIR0 |= (1<<22);
-    while (1)
-    {
-        REG_PORT_OUT0 &= ~(1<<22);
-        delay(500);
-        REG_PORT_OUT0 |= (1<<22);
-        delay(500);
-    }
+	/* Replace with your application code */
+	while (1) {
+		gpio_toggle_pin_level(BLINKER);
+		delay_ms(500);
+	}
 }

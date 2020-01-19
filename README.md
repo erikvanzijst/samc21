@@ -40,7 +40,8 @@ Write the serial number to `openocd.cfg`.
 
 Compile:
 ```
-$ make
+$ cd gcc
+gcc$ make
 CC build/main.o
 CC build/startup_samc21n.o
 LD build/blinky.elf
