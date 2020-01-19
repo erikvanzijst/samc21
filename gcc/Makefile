@@ -27,6 +27,8 @@ else
 	endif
 endif
 
+MK_DIR = mkdir -p
+
 # List the subdirectories for creating object files
 SUB_DIRS +=  \
  \
@@ -187,7 +189,7 @@ DEPS_AS_ARGS +=  \
 "hpl/adc/hpl_adc.d" \
 "atmel_start.d"
 
-OUTPUT_FILE_NAME :=AtmelStart
+OUTPUT_FILE_NAME :=blinker
 QUOTE := "
 OUTPUT_FILE_PATH +=$(OUTPUT_FILE_NAME).elf
 OUTPUT_FILE_PATH_AS_ARGS +=$(OUTPUT_FILE_NAME).elf
@@ -266,7 +268,7 @@ $(SUB_DIRS):
 
 program: $(SUB_DIRS) $(OUTPUT_FILE_PATH)
 	@echo Writing flash...
-	openocd -f openocd.cfg -c "program $^ verify reset exit"
+	openocd -f ../openocd.cfg -c "program $(OUTPUT_FILE_PATH) verify reset exit"
 
 clean:
 	rm -f $(OBJS_AS_ARGS)

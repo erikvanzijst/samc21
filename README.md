@@ -42,24 +42,36 @@ Compile:
 ```
 $ cd gcc
 gcc$ make
-CC build/main.o
-CC build/startup_samc21n.o
-LD build/blinky.elf
-OBJCOPY build/blinky.hex
-OBJCOPY build/blinky.bin
-size:
+Building file: ../hal/src/hal_io.c
+ARM/GNU C Compiler
+"arm-none-eabi-gcc" -x c -mthumb -DDEBUG -Os -ffunction-sections -mlong-calls -g3 -Wall -c -std=gnu99 \
+-D__SAMC21E18A__ -mcpu=cortex-m0plus  \
+-I"../" -I"../config" -I"../examples" -I"../hal/include" -I"../hal/utils/include" -I"../hpl/adc" -I"../hpl/core" -I"../hpl/divas" -I"../hpl/dmac" -I"../hpl/gclk" -I"../hpl/mclk" -I"../hpl/osc32kctrl" -I"../hpl/oscctrl" -I"../hpl/pm" -I"../hpl/port" -I"../hpl/rtc" -I"../hpl/systick" -I"../hpl/tc" -I"../hpl/tsens" -I"../hri" -I"../" -I"../CMSIS/Core/Include" -I"../samc21/include" \
+-MD -MP -MF "hal/src/hal_io.d" -MT"hal/src/hal_io.d" -MT"hal/src/hal_io.o"  -o "hal/src/hal_io.o" "../hal/src/hal_io.c"
+Finished building: ../hal/src/hal_io.c
+
+...
+
+Finished building target: blinker.elf
+"arm-none-eabi-objcopy" -O binary "blinker.elf" "blinker.bin"
+"arm-none-eabi-objcopy" -O ihex -R .eeprom -R .fuse -R .lock -R .signature  \
+        "blinker.elf" "blinker.hex"
+"arm-none-eabi-objcopy" -j .eeprom --set-section-flags=.eeprom=alloc,load --change-section-lma \
+        .eeprom=0 --no-change-warnings -O binary "blinker.elf" \
+        "blinker.eep" || exit 0
+"arm-none-eabi-objdump" -h -S "blinker.elf" > "blinker.lss"
+"arm-none-eabi-size" "blinker.elf"
    text	   data	    bss	    dec	    hex	filename
-    352	      0	      0	    352	    160	build/blinky.elf
-    352	      0	      0	    352	    160	(TOTALS)
+   5552	     40	   8328	  13920	   3660	blinker.elf
 $
 ```
 
 and upload to the MCU:
 
 ```
-$ make program
+gcc$ make program
 Writing flash...
-openocd -f openocd.cfg -c "program build/blinky.elf verify reset exit"
+openocd -f ../openocd.cfg -c "program blinker.elf verify reset exit"
 Open On-Chip Debugger 0.10.0
 Licensed under GNU GPL v2
 For bug reports, read
@@ -77,14 +89,14 @@ Info : clock speed 400 kHz
 Info : SWD DPIDR 0x0bc11477
 Info : at91samc21n18.cpu: hardware has 4 breakpoints, 2 watchpoints
 target halted due to debug-request, current mode: Thread 
-xPSR: 0x21000000 pc: 0x00000110 msp: 0x20008000
+xPSR: 0x41000000 pc: 0x0000015c msp: 0x200020b0
 ** Programming Started **
 auto erase enabled
 Info : SAMD MCU: SAMC21E18A (256KB Flash, 32KB RAM)
-wrote 16384 bytes from file build/blinky.elf in 2.098460s (7.625 KiB/s)
+wrote 16384 bytes from file blinker.elf in 2.059944s (7.767 KiB/s)
 ** Programming Finished **
 ** Verify Started **
-verified 352 bytes in 0.062266s (5.521 KiB/s)
+verified 5592 bytes in 0.223037s (24.484 KiB/s)
 ** Verified OK **
 ** Resetting Target **
 shutdown command invoked
