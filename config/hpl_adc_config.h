@@ -18,7 +18,7 @@
 // <i>  Defines the bit resolution for the ADC sample values (RESSEL)
 // <id> adc_resolution
 #ifndef CONF_ADC_0_RESSEL
-#define CONF_ADC_0_RESSEL 0x3
+#define CONF_ADC_0_RESSEL 0x2
 #endif
 
 // <o> Reference Selection
@@ -31,7 +31,7 @@
 // <i> Select the reference for the ADC (REFSEL)
 // <id> adc_reference
 #ifndef CONF_ADC_0_REFSEL
-#define CONF_ADC_0_REFSEL 0x0
+#define CONF_ADC_0_REFSEL 0x5
 #endif
 
 // <o> Prescaler configuration
@@ -46,7 +46,7 @@
 // <i> These bits define the ADC clock relative to the peripheral clock (PRESCALER)
 // <id> adc_prescaler
 #ifndef CONF_ADC_0_PRESCALER
-#define CONF_ADC_0_PRESCALER 0x0
+#define CONF_ADC_0_PRESCALER 0x4
 #endif
 
 // <q> Free Running Mode
@@ -98,7 +98,7 @@
 // <i> These bits define the Mux selection for the negative ADC input. (MUXNEG)
 // <id> adc_pinmux_negative
 #ifndef CONF_ADC_0_MUXNEG
-#define CONF_ADC_0_MUXNEG 0x0
+#define CONF_ADC_0_MUXNEG 0x18
 #endif
 
 // </h>
@@ -129,7 +129,7 @@
 // <i> This bit enable R2R operation (R2R)
 // <id> adc_arch_r2r
 #ifndef CONF_ADC_0_R2R
-#define CONF_ADC_0_R2R 0
+#define CONF_ADC_0_R2R 1
 #endif
 
 // <q> Run in standby
@@ -171,7 +171,7 @@
 // <i> This bit indicates whether the Comparator Offset Compensation is enabled or not (OFFCOMP)
 // <id> adc_arch_offcomp
 #ifndef CONF_ADC_0_OFFCOMP
-#define CONF_ADC_0_OFFCOMP 0
+#define CONF_ADC_0_OFFCOMP 1
 #endif
 
 // <q> Digital Correction Logic Enabled

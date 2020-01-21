@@ -36,10 +36,10 @@ drivers:
       adc_arch_flushinv: false
       adc_arch_gaincorr: 0
       adc_arch_leftadj: false
-      adc_arch_offcomp: false
+      adc_arch_offcomp: true
       adc_arch_offsetcorr: 0
       adc_arch_ondemand: false
-      adc_arch_r2r: false
+      adc_arch_r2r: true
       adc_arch_refcomp: false
       adc_arch_resrdyeo: false
       adc_arch_runstdby: false
@@ -55,11 +55,11 @@ drivers:
       adc_arch_winut: 0
       adc_differential_mode: false
       adc_freerunning_mode: false
-      adc_pinmux_negative: ADC AIN0 pin
+      adc_pinmux_negative: Internal ground
       adc_pinmux_positive: ADC AIN0 pin
       adc_prescaler: Peripheral clock divided by 2
-      adc_reference: Internal bandgap reference
-      adc_resolution: 8-bit
+      adc_reference: VDDANA
+      adc_resolution: 12-bit
     optional_signals:
     - identifier: ADC_0:AIN/0
       pad: PA02

@@ -11,9 +11,10 @@ uint32_t min(uint32_t a, uint32_t b)
 int main(void)
 {
 	const uint32_t period = 10000;
-	const float scale = 255.0 / (float)period;
+	const float scale = 0x3FF / (float)period;
 	uint8_t buffer[2];
 	uint32_t val;
+	uint32_t duty = 0;
 
 	/* Initializes MCU, drivers and middleware */
 	atmel_start_init();
@@ -21,18 +22,15 @@ int main(void)
 	pwm_set_parameters(&PWM_0, period, period / 2);
 	pwm_enable(&PWM_0);
 
-	uint32_t duty = 0;
-
 	while (1) {
 		adc_sync_read_channel(&ADC_0, 0, buffer, sizeof(buffer));
 
-		// duty = (duty + 100) % 10000;
-		val = (buffer[0] << 8) + buffer[0];
+		val = (buffer[1] << 8) + buffer[0];
 		duty = min((uint32_t)((float)val / scale), period);
 		pwm_set_parameters(&PWM_0, period, duty);
 
 		gpio_toggle_pin_level(BLINKER);
 
-		delay_ms(10);
+		delay_ms(1);
 	}
 }
