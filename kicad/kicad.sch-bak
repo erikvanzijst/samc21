@@ -42,16 +42,16 @@ Text Label 5675 1950 0    50   ~ 0
 $Comp
 L Device:R R1
 U 1 1 5E23DDA0
-P 3900 2550
-F 0 "R1" H 3970 2596 50  0000 L CNN
-F 1 "1K" H 3970 2505 50  0000 L CNN
-F 2 "" V 3830 2550 50  0001 C CNN
-F 3 "~" H 3900 2550 50  0001 C CNN
-	1    3900 2550
+P 3500 2550
+F 0 "R1" H 3570 2596 50  0000 L CNN
+F 1 "1K" H 3570 2505 50  0000 L CNN
+F 2 "" V 3430 2550 50  0001 C CNN
+F 3 "~" H 3500 2550 50  0001 C CNN
+	1    3500 2550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3900 4500 4475 4500
+	3500 4500 4475 4500
 Connection ~ 5675 1975
 $Comp
 L power:GND #PWR02
@@ -96,56 +96,50 @@ F 3 "~" H 5125 5050 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	3900 2400 3900 1975
+	3500 2400 3500 1975
 Wire Wire Line
-	3900 2700 3900 4200
+	3500 2700 3500 4300
 Wire Wire Line
-	2975 4000 3450 4000
+	2975 4100 3175 4100
 Wire Wire Line
-	3450 4000 3450 4600
+	3175 4100 3175 4600
 Wire Wire Line
-	3450 4600 4475 4600
+	3175 4600 4475 4600
 Wire Wire Line
-	2975 4200 3900 4200
-Connection ~ 3900 4200
+	2975 4300 3500 4300
+Connection ~ 3500 4300
 Wire Wire Line
-	3900 4200 3900 4500
-Wire Wire Line
-	4475 4400 3275 4400
-Wire Wire Line
-	3275 4400 3275 4300
-Wire Wire Line
-	3275 4300 2975 4300
-NoConn ~ 2975 4400
+	3500 4300 3500 4500
 NoConn ~ 2975 4500
+NoConn ~ 2975 4600
 $Comp
 L local_syms:Conn_ARM_JTAG_SWD_10 J1
 U 1 1 5E24CFFF
-P 2475 4300
-F 0 "J1" H 2525 5081 50  0000 C CNN
-F 1 "Conn_ARM_JTAG_SWD_10" H 2525 4990 50  0000 C CNN
-F 2 "" H 2475 4300 50  0001 C CNN
-F 3 "http://infocenter.arm.com/help/topic/com.arm.doc.ddi0314h/DDI0314H_coresight_components_trm.pdf" V 2125 3050 50  0001 C CNN
-	1    2475 4300
+P 2475 4400
+F 0 "J1" H 2525 5181 50  0000 C CNN
+F 1 "Conn_ARM_JTAG_SWD_10" H 2525 5090 50  0000 C CNN
+F 2 "" H 2475 4400 50  0001 C CNN
+F 3 "http://infocenter.arm.com/help/topic/com.arm.doc.ddi0314h/DDI0314H_coresight_components_trm.pdf" V 2125 3150 50  0001 C CNN
+	1    2475 4400
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	5425 5050 5125 5050
 Wire Wire Line
-	2375 5050 2375 4900
+	2375 5050 2375 5000
 Wire Wire Line
-	2475 4900 2475 5050
+	2475 5000 2475 5050
 Connection ~ 2475 5050
 Wire Wire Line
 	2475 5050 2375 5050
 Wire Wire Line
-	2575 4900 2575 5050
+	2575 5000 2575 5050
 Connection ~ 2575 5050
 Wire Wire Line
 	2575 5050 2475 5050
 Connection ~ 5125 5050
 Wire Wire Line
-	5125 5050 2575 5050
+	5125 5050 4325 5050
 $Comp
 L Device:LED D1
 U 1 1 5E250E9B
@@ -157,10 +151,6 @@ F 3 "~" H 6950 4450 50  0001 C CNN
 	1    6950 4450
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6475 4100 6950 4100
-Wire Wire Line
-	6950 4100 6950 4300
 Wire Wire Line
 	5675 1975 5675 2200
 $Comp
@@ -183,7 +173,7 @@ Wire Wire Line
 	6950 5050 6950 4600
 Connection ~ 5425 1975
 Wire Wire Line
-	5425 1975 3900 1975
+	5425 1975 4325 1975
 Wire Wire Line
 	5425 1975 5675 1975
 $Comp
@@ -289,10 +279,10 @@ Connection ~ 5675 2500
 Wire Wire Line
 	5675 2500 5675 2900
 Wire Wire Line
-	2475 1975 3900 1975
+	2475 1975 3500 1975
 Wire Wire Line
-	2475 1975 2475 3700
-Connection ~ 3900 1975
+	2475 1975 2475 3800
+Connection ~ 3500 1975
 $Comp
 L Device:C C5
 U 1 1 5E271495
@@ -312,4 +302,71 @@ Wire Wire Line
 	6100 2825 6225 2825
 Wire Wire Line
 	6225 2825 6225 2500
+NoConn ~ 4475 3300
+NoConn ~ 4475 3400
+NoConn ~ 4475 3700
+NoConn ~ 4475 3900
+NoConn ~ 4475 4000
+NoConn ~ 4475 4100
+NoConn ~ 4475 4200
+NoConn ~ 6475 3300
+NoConn ~ 6475 3400
+NoConn ~ 6475 3500
+NoConn ~ 6475 3600
+NoConn ~ 6475 3800
+NoConn ~ 6475 3900
+NoConn ~ 6475 4000
+NoConn ~ 6475 4200
+NoConn ~ 6475 4300
+NoConn ~ 6475 4400
+NoConn ~ 6475 4500
+NoConn ~ 6475 4600
+Wire Wire Line
+	6475 3700 6950 3700
+Wire Wire Line
+	6950 3700 6950 4300
+NoConn ~ 6475 4100
+Wire Wire Line
+	2975 4400 4475 4400
+$Comp
+L Device:R_POT RV1
+U 1 1 5E28D798
+P 3975 3500
+F 0 "RV1" H 3906 3546 50  0000 R CNN
+F 1 "10K" H 3906 3455 50  0000 R CNN
+F 2 "" H 3975 3500 50  0001 C CNN
+F 3 "~" H 3975 3500 50  0001 C CNN
+	1    3975 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4125 3500 4475 3500
+Wire Wire Line
+	3975 3350 3975 1975
+Connection ~ 3975 1975
+Wire Wire Line
+	3975 1975 3500 1975
+Wire Wire Line
+	3975 3650 3975 5050
+Connection ~ 3975 5050
+Wire Wire Line
+	3975 5050 2575 5050
+Wire Wire Line
+	4475 3800 4325 3800
+Wire Wire Line
+	4325 3800 4325 5050
+Connection ~ 4325 5050
+Wire Wire Line
+	4325 5050 3975 5050
+Text Label 4325 4325 1    50   ~ 0
+MUXNEG_AIN5
+Wire Wire Line
+	4475 3600 4325 3600
+Wire Wire Line
+	4325 3600 4325 1975
+Connection ~ 4325 1975
+Wire Wire Line
+	4325 1975 3975 1975
+Text Label 4325 3325 1    50   ~ 0
+VREFP_AIN1
 $EndSCHEMATC

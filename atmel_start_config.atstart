@@ -55,10 +55,10 @@ drivers:
       adc_arch_winut: 0
       adc_differential_mode: false
       adc_freerunning_mode: false
-      adc_pinmux_negative: Internal ground
+      adc_pinmux_negative: ADC AIN5 pin
       adc_pinmux_positive: ADC AIN0 pin
       adc_prescaler: Peripheral clock divided by 2
-      adc_reference: VDDANA
+      adc_reference: External reference A
       adc_resolution: 12-bit
     optional_signals:
     - identifier: ADC_0:AIN/0
@@ -68,6 +68,20 @@ drivers:
       definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::ADC0.AIN.0
       name: ADC0/AIN/0
       label: AIN/0
+    - identifier: ADC_0:AIN/5
+      pad: PA05
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::ADC0.AIN.5
+      name: ADC0/AIN/5
+      label: AIN/5
+    - identifier: ADC_0:VREFP
+      pad: PA03
+      mode: Enabled
+      configuration: null
+      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::ADC0.VREFP
+      name: ADC0/VREFP
+      label: VREFP
     variant: null
     clocks:
       domain_group:
@@ -657,13 +671,6 @@ drivers:
       tc_prescaler: No division
       timer_event_control: false
     optional_signals:
-    - identifier: PWM_0:WO/0
-      pad: PA14
-      mode: PWM output
-      configuration: null
-      definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::optional_signal_definition::TC4.WO.0
-      name: TC4/WO/0
-      label: WO/0
     - identifier: PWM_0:WO/1
       pad: PA15
       mode: PWM output
@@ -717,17 +724,23 @@ pads:
     mode: Analog
     user_label: ANALOG_IN
     configuration: null
-  LED1:
-    name: PA14
-    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA14
-    mode: Peripheral IO
-    user_label: LED1
+  ADC_POS:
+    name: PA03
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA03
+    mode: Analog
+    user_label: ADC_POS
     configuration: null
-  LED2:
+  ADC_NEG:
+    name: PA05
+    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA05
+    mode: Analog
+    user_label: ADC_NEG
+    configuration: null
+  LED:
     name: PA15
     definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA15
     mode: Peripheral IO
-    user_label: LED2
+    user_label: LED
     configuration: null
   BLINKER:
     name: PA22

@@ -29,6 +29,16 @@ void ADC_0_PORT_init(void)
 	gpio_set_pin_direction(ANALOG_IN, GPIO_DIRECTION_OFF);
 
 	gpio_set_pin_function(ANALOG_IN, PINMUX_PA02B_ADC0_AIN0);
+
+	// Disable digital pin circuitry
+	gpio_set_pin_direction(ADC_NEG, GPIO_DIRECTION_OFF);
+
+	gpio_set_pin_function(ADC_NEG, PINMUX_PA05B_ADC0_AIN5);
+
+	// Disable digital pin circuitry
+	gpio_set_pin_direction(ADC_POS, GPIO_DIRECTION_OFF);
+
+	gpio_set_pin_function(ADC_POS, PINMUX_PA03B_ADC0_VREFP);
 }
 
 void ADC_0_CLOCK_init(void)
@@ -63,9 +73,7 @@ void delay_driver_init(void)
 void PWM_0_PORT_init(void)
 {
 
-	gpio_set_pin_function(LED1, PINMUX_PA14E_TC4_WO0);
-
-	gpio_set_pin_function(LED2, PINMUX_PA15E_TC4_WO1);
+	gpio_set_pin_function(LED, PINMUX_PA15E_TC4_WO1);
 }
 
 void PWM_0_CLOCK_init(void)

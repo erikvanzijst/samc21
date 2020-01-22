@@ -31,7 +31,7 @@
 // <i> Select the reference for the ADC (REFSEL)
 // <id> adc_reference
 #ifndef CONF_ADC_0_REFSEL
-#define CONF_ADC_0_REFSEL 0x5
+#define CONF_ADC_0_REFSEL 0x3
 #endif
 
 // <o> Prescaler configuration
@@ -46,7 +46,7 @@
 // <i> These bits define the ADC clock relative to the peripheral clock (PRESCALER)
 // <id> adc_prescaler
 #ifndef CONF_ADC_0_PRESCALER
-#define CONF_ADC_0_PRESCALER 0x4
+#define CONF_ADC_0_PRESCALER 0x0
 #endif
 
 // <q> Free Running Mode
@@ -98,7 +98,7 @@
 // <i> These bits define the Mux selection for the negative ADC input. (MUXNEG)
 // <id> adc_pinmux_negative
 #ifndef CONF_ADC_0_MUXNEG
-#define CONF_ADC_0_MUXNEG 0x18
+#define CONF_ADC_0_MUXNEG 0x5
 #endif
 
 // </h>

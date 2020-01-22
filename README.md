@@ -103,4 +103,4 @@ shutdown command invoked
 $
 ```
 
-The LED should start flashing.
+The LED should now respond to the pot.
