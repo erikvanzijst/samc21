@@ -14,6 +14,10 @@ Get an [Atmel-ICE programmer](https://www.digikey.com/short/z72v4z).
 
 ## Schematic
 
+With a pot connected to the chip's ADC and the ADC driving the PWM duty cycle
+of an LED, we should be able to very accurately adjust the brightness of the
+LED from off to full brightness.
+
 ![](images/samc21_schematic.png)
 
 Connect the programmer to the breadboard

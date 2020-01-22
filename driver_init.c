@@ -106,20 +106,6 @@ void system_init(void)
 {
 	init_mcu();
 
-	// GPIO on PA22
-
-	gpio_set_pin_level(BLINKER,
-	                   // <y> Initial level
-	                   // <id> pad_initial_level
-	                   // <false"> Low
-	                   // <true"> High
-	                   false);
-
-	// Set pin direction to output
-	gpio_set_pin_direction(BLINKER, GPIO_DIRECTION_OUT);
-
-	gpio_set_pin_function(BLINKER, GPIO_PIN_FUNCTION_OFF);
-
 	ADC_0_init();
 
 	TIMER_0_init();

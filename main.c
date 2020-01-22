@@ -33,8 +33,6 @@ int main(void)
         val = (int32_t)(((buffer[1] << 8) + buffer[0]) - floor) / scale;
 
         pwm_set_parameters(&PWM_0, period, (uint32_t)max(dwin_push(win, val), 0.0));
-        gpio_toggle_pin_level(BLINKER);
-
         delay_ms(1);
     }
     dwin_free(win);

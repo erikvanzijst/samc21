@@ -742,10 +742,4 @@ pads:
     mode: Peripheral IO
     user_label: LED
     configuration: null
-  BLINKER:
-    name: PA22
-    definition: Atmel:SAMC21_Drivers:0.0.1::SAMC21E18A-AN::pad::PA22
-    mode: Digital output
-    user_label: BLINKER
-    configuration: null
 toolchain_options: []
