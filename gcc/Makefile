@@ -72,7 +72,6 @@ hpl/mclk/hpl_mclk.o \
 hal/src/hal_temp_sync.o \
 hpl/gclk/hpl_gclk.o \
 hal/src/hal_init.o \
-main.o \
 hpl/osc32kctrl/hpl_osc32kctrl.o \
 hpl/rtc/hpl_rtc.o \
 examples/driver_examples.o \
@@ -86,7 +85,9 @@ atmel_start.o \
 hpl/tc/hpl_tc.o \
 hal/src/hal_atomic.o \
 hpl/adc/hpl_adc.o \
-hpl/tsens/hpl_tsens.o
+hpl/tsens/hpl_tsens.o \
+win.o \
+main.o
 
 OBJS_AS_ARGS +=  \
 "hal/src/hal_io.o" \
@@ -108,7 +109,6 @@ OBJS_AS_ARGS +=  \
 "hal/src/hal_temp_sync.o" \
 "hpl/gclk/hpl_gclk.o" \
 "hal/src/hal_init.o" \
-"main.o" \
 "hpl/osc32kctrl/hpl_osc32kctrl.o" \
 "hpl/rtc/hpl_rtc.o" \
 "examples/driver_examples.o" \
@@ -122,7 +122,9 @@ OBJS_AS_ARGS +=  \
 "hpl/tc/hpl_tc.o" \
 "hal/src/hal_atomic.o" \
 "hpl/adc/hpl_adc.o" \
-"hpl/tsens/hpl_tsens.o"
+"hpl/tsens/hpl_tsens.o" \
+"main.o" \
+"win.o"
 
 # List the directories containing header files
 DIR_INCLUDES +=  \
@@ -177,7 +179,6 @@ DEPS_AS_ARGS +=  \
 "driver_init.d" \
 "hal/src/hal_adc_sync.d" \
 "hpl/osc32kctrl/hpl_osc32kctrl.d" \
-"main.d" \
 "examples/driver_examples.d" \
 "hpl/tsens/hpl_tsens.d" \
 "hpl/divas/hpl_divas.d" \
@@ -187,7 +188,9 @@ DEPS_AS_ARGS +=  \
 "hpl/tc/hpl_tc.d" \
 "hpl/oscctrl/hpl_oscctrl.d" \
 "hpl/adc/hpl_adc.d" \
-"atmel_start.d"
+"atmel_start.d" \
+"win.d" \
+"main.d"
 
 OUTPUT_FILE_NAME :=blinker
 QUOTE := "
@@ -222,12 +225,7 @@ $(OUTPUT_FILE_PATH): $(OBJS)
 	"arm-none-eabi-objdump" -h -S "$(OUTPUT_FILE_NAME).elf" > "$(OUTPUT_FILE_NAME).lss"
 	"arm-none-eabi-size" "$(OUTPUT_FILE_NAME).elf"
 
-	
-
 # Compiler targets
-
-
-
 
 %.o: %.c
 	@echo Building file: $<

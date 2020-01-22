@@ -9,7 +9,14 @@
 			"samc21.h": "c",
 			"samc21n18a.h": "c",
 			"driver_examples.h": "c",
-			"stdlib.h": "c"
+			"stdlib.h": "c",
+			"atmel_start.h": "c",
+			"driver_init.h": "c",
+			"atmel_start_pins.h": "c",
+			"hal_gpio.h": "c",
+			"hpl_gpio.h": "c",
+			"compiler.h": "c",
+			"win.h": "c"
 		}
 	}
 }
