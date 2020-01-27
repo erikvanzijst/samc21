@@ -312,7 +312,6 @@ NoConn ~ 4475 4200
 NoConn ~ 6475 3300
 NoConn ~ 6475 3400
 NoConn ~ 6475 3500
-NoConn ~ 6475 3600
 NoConn ~ 6475 3800
 NoConn ~ 6475 3900
 NoConn ~ 6475 4000
@@ -321,10 +320,6 @@ NoConn ~ 6475 4300
 NoConn ~ 6475 4400
 NoConn ~ 6475 4500
 NoConn ~ 6475 4600
-Wire Wire Line
-	6475 3700 6950 3700
-Wire Wire Line
-	6950 3700 6950 4300
 NoConn ~ 6475 4100
 Wire Wire Line
 	2975 4400 4475 4400
@@ -369,4 +364,9 @@ Wire Wire Line
 	4325 1975 3975 1975
 Text Label 4325 3325 1    50   ~ 0
 VREFP_AIN1
+Wire Wire Line
+	6950 3600 6475 3600
+Wire Wire Line
+	6950 3600 6950 4300
+NoConn ~ 6475 3700
 $EndSCHEMATC
