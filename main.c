@@ -3,13 +3,9 @@
 
 #include <atmel_start.h>
 #include <atmel_start_pins.h>
+#include <utils.h>
 
 #include "win.h"
-
-float max(float a, float b)
-{
-    return a > b ? a : b;
-}
 
 int main(void)
 {

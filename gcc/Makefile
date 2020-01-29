@@ -47,6 +47,7 @@ hpl/pm \
 examples \
 hpl/gclk \
 hpl/oscctrl \
+hpl/sercom \
 hpl/rtc \
 hpl/core \
 hpl/tsens
@@ -68,6 +69,7 @@ hpl/core/hpl_core_m0plus_base.o \
 hal/utils/src/utils_assert.o \
 hpl/dmac/hpl_dmac.o \
 hpl/pm/hpl_pm.o \
+hal/src/hal_usart_sync.o \
 hpl/mclk/hpl_mclk.o \
 hal/src/hal_temp_sync.o \
 hpl/gclk/hpl_gclk.o \
@@ -77,6 +79,7 @@ hpl/rtc/hpl_rtc.o \
 examples/driver_examples.o \
 driver_init.o \
 hal/src/hal_adc_sync.o \
+hpl/sercom/hpl_sercom.o \
 hal/src/hal_gpio.o \
 hpl/divas/hpl_divas.o \
 hal/utils/src/utils_event.o \
@@ -105,6 +108,7 @@ OBJS_AS_ARGS +=  \
 "hal/utils/src/utils_assert.o" \
 "hpl/dmac/hpl_dmac.o" \
 "hpl/pm/hpl_pm.o" \
+"hal/src/hal_usart_sync.o" \
 "hpl/mclk/hpl_mclk.o" \
 "hal/src/hal_temp_sync.o" \
 "hpl/gclk/hpl_gclk.o" \
@@ -114,6 +118,7 @@ OBJS_AS_ARGS +=  \
 "examples/driver_examples.o" \
 "driver_init.o" \
 "hal/src/hal_adc_sync.o" \
+"hpl/sercom/hpl_sercom.o" \
 "hal/src/hal_gpio.o" \
 "hpl/divas/hpl_divas.o" \
 "hal/utils/src/utils_event.o" \
@@ -144,6 +149,7 @@ DIR_INCLUDES +=  \
 -I"../hpl/pm" \
 -I"../hpl/port" \
 -I"../hpl/rtc" \
+-I"../hpl/sercom" \
 -I"../hpl/systick" \
 -I"../hpl/tc" \
 -I"../hpl/tsens" \
@@ -175,6 +181,7 @@ DEPS_AS_ARGS +=  \
 "samc21/gcc/system_samc21.d" \
 "hal/src/hal_temp_sync.d" \
 "hal/src/hal_init.d" \
+"hal/src/hal_usart_sync.d" \
 "hpl/mclk/hpl_mclk.d" \
 "driver_init.d" \
 "hal/src/hal_adc_sync.d" \
@@ -183,6 +190,7 @@ DEPS_AS_ARGS +=  \
 "hpl/tsens/hpl_tsens.d" \
 "hpl/divas/hpl_divas.d" \
 "hal/src/hal_sleep.d" \
+"hpl/sercom/hpl_sercom.d" \
 "hal/src/hal_gpio.d" \
 "hal/src/hal_atomic.d" \
 "hpl/tc/hpl_tc.d" \

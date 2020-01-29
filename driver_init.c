@@ -18,6 +18,8 @@ struct timer_descriptor TIMER_0;
 
 struct adc_sync_descriptor ADC_0;
 
+struct usart_sync_descriptor USART_0;
+
 struct pwm_descriptor PWM_0;
 
 struct temp_sync_descriptor TEMPERATURE_SENSOR_0;
@@ -65,6 +67,28 @@ static void TIMER_0_init(void)
 	timer_init(&TIMER_0, RTC, _rtc_get_timer());
 }
 
+void USART_0_PORT_init(void)
+{
+
+	gpio_set_pin_function(UART_RX, PINMUX_PA09C_SERCOM0_PAD1);
+
+	gpio_set_pin_function(UART_TX, PINMUX_PA10C_SERCOM0_PAD2);
+}
+
+void USART_0_CLOCK_init(void)
+{
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM0_GCLK_ID_CORE, CONF_GCLK_SERCOM0_CORE_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_gclk_write_PCHCTRL_reg(GCLK, SERCOM0_GCLK_ID_SLOW, CONF_GCLK_SERCOM0_SLOW_SRC | (1 << GCLK_PCHCTRL_CHEN_Pos));
+	hri_mclk_set_APBCMASK_SERCOM0_bit(MCLK);
+}
+
+void USART_0_init(void)
+{
+	USART_0_CLOCK_init();
+	usart_sync_init(&USART_0, SERCOM0, (void *)NULL);
+	USART_0_PORT_init();
+}
+
 void delay_driver_init(void)
 {
 	delay_init(SysTick);
@@ -109,6 +133,8 @@ void system_init(void)
 	ADC_0_init();
 
 	TIMER_0_init();
+
+	USART_0_init();
 
 	delay_driver_init();
 
