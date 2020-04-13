@@ -16,7 +16,9 @@
 			"hal_gpio.h": "c",
 			"hpl_gpio.h": "c",
 			"compiler.h": "c",
-			"win.h": "c"
+			"win.h": "c",
+			"string.h": "c",
+			"stdarg.h": "c"
 		}
 	}
 }
